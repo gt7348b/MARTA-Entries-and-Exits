@@ -1,0 +1,169 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'update', '-g', 'yo' ]
+2 info using npm@2.0.2
+3 info using node@v0.10.32
+4 verbose node symlink /usr/local/bin/node
+5 verbose mapToRegistry name yo
+6 verbose mapToRegistry uri https://registry.npmjs.org/yo
+7 verbose request on initialization, where is /yo
+8 verbose request after pass 1, where is /yo
+9 verbose request url raw /yo
+10 verbose request resolving registry [ 'https://registry.npmjs.org/', './yo' ]
+11 verbose request after pass 2, where is https://registry.npmjs.org/yo
+12 verbose request no auth needed
+13 info attempt registry request try #1 at 16:40:37
+14 verbose request id 3356a828b7d21adb
+15 verbose etag "5PLOWBG1J7H5JRE51BP7EMZHO"
+16 http request GET https://registry.npmjs.org/yo
+17 http 304 https://registry.npmjs.org/yo
+18 silly registry.get cb [ 304,
+18 silly registry.get   { date: 'Sat, 31 Jan 2015 21:40:37 GMT',
+18 silly registry.get     server: 'Apache',
+18 silly registry.get     via: '1.1 varnish',
+18 silly registry.get     'last-modified': 'Sat, 31 Jan 2015 21:40:37 GMT',
+18 silly registry.get     'cache-control': 'max-age=60',
+18 silly registry.get     etag: '"5PLOWBG1J7H5JRE51BP7EMZHO"',
+18 silly registry.get     age: '13',
+18 silly registry.get     'x-served-by': 'cache-atl6223-ATL',
+18 silly registry.get     'x-cache': 'HIT',
+18 silly registry.get     'x-cache-hits': '1',
+18 silly registry.get     'x-timer': 'S1422740437.787803,VS0,VE1',
+18 silly registry.get     vary: 'Accept',
+18 silly registry.get     'content-length': '0',
+18 silly registry.get     'keep-alive': 'timeout=10, max=50',
+18 silly registry.get     connection: 'Keep-Alive' } ]
+19 verbose etag https://registry.npmjs.org/yo from cache
+20 info outdated updating [ [ '/usr/local/lib', 'yo', '1.2.1', '1.4.5', '1.4.5', 'latest' ] ]
+21 verbose install where, what [ '/usr/local/lib', [ 'yo@1.4.5' ] ]
+22 verbose cache add [ 'yo@1.4.5', null ]
+23 verbose cache add spec="yo@1.4.5" args=["yo@1.4.5",null]
+24 verbose parsed spec { raw: 'yo@1.4.5',
+24 verbose parsed spec   scope: null,
+24 verbose parsed spec   name: 'yo',
+24 verbose parsed spec   rawSpec: '1.4.5',
+24 verbose parsed spec   spec: '1.4.5',
+24 verbose parsed spec   type: 'version' }
+25 verbose parsed spec { raw: 'yo@1.4.5',
+25 verbose parsed spec   scope: null,
+25 verbose parsed spec   name: 'yo',
+25 verbose parsed spec   rawSpec: '1.4.5',
+25 verbose parsed spec   spec: '1.4.5',
+25 verbose parsed spec   type: 'version' }
+26 verbose addNamed [ 'yo', '1.4.5' ]
+27 verbose addNamed [ '1.4.5', '1.4.5' ]
+28 silly lockFile cf639607-yo-1-4-5 yo@1.4.5
+29 verbose lock yo@1.4.5 /Users/Impy/.npm/cf639607-yo-1-4-5.lock
+30 verbose mapToRegistry name yo
+31 verbose mapToRegistry uri https://registry.npmjs.org/yo
+32 verbose registry.get https://registry.npmjs.org/yo not expired, no request
+33 silly lockFile cf639607-yo-1-4-5 yo@1.4.5
+34 silly lockFile cf639607-yo-1-4-5 yo@1.4.5
+35 silly resolved [ { name: 'yo',
+35 silly resolved     version: '1.4.5',
+35 silly resolved     description: 'CLI tool for running Yeoman generators',
+35 silly resolved     license: 'BSD',
+35 silly resolved     bin: { yo: 'lib/cli.js' },
+35 silly resolved     author: { name: 'Yeoman team' },
+35 silly resolved     repository: { type: 'git', url: 'https://github.com/yeoman/yo' },
+35 silly resolved     engines: { node: '>=0.10.0', npm: '>=2.1.0' },
+35 silly resolved     scripts:
+35 silly resolved      { test: 'jshint . && mocha test/**/*.js',
+35 silly resolved        postinstall: 'yodoctor',
+35 silly resolved        postupdate: 'yodoctor',
+35 silly resolved        prepublish: 'nsp audit-package' },
+35 silly resolved     files: [ 'lib' ],
+35 silly resolved     keywords:
+35 silly resolved      [ 'cli-app',
+35 silly resolved        'cli',
+35 silly resolved        'bin',
+35 silly resolved        'front-end',
+35 silly resolved        'development',
+35 silly resolved        'dev',
+35 silly resolved        'build',
+35 silly resolved        'web',
+35 silly resolved        'tool',
+35 silly resolved        'scaffold',
+35 silly resolved        'stack',
+35 silly resolved        'yeoman',
+35 silly resolved        'generator',
+35 silly resolved        'generate',
+35 silly resolved        'app',
+35 silly resolved        'boilerplate' ],
+35 silly resolved     dependencies:
+35 silly resolved      { 'array-uniq': '^1.0.2',
+35 silly resolved        async: '^0.9.0',
+35 silly resolved        chalk: '^0.5.1',
+35 silly resolved        configstore: '^0.3.1',
+35 silly resolved        'cross-spawn': '^0.2.3',
+35 silly resolved        figures: '^1.3.5',
+35 silly resolved        findup: '^0.1.5',
+35 silly resolved        fullname: '^1.0.0',
+35 silly resolved        'humanize-string': '^1.0.0',
+35 silly resolved        inquirer: '^0.8.0',
+35 silly resolved        insight: '^0.5.0',
+35 silly resolved        lodash: '^2.4.1',
+35 silly resolved        meow: '^3.0.0',
+35 silly resolved        'npm-keyword': '^1.0.1',
+35 silly resolved        opn: '^1.0.0',
+35 silly resolved        'package-json': '^1.0.1',
+35 silly resolved        'root-check': '^1.0.0',
+35 silly resolved        'sort-on': '^1.0.0',
+35 silly resolved        'string-length': '^1.0.0',
+35 silly resolved        titleize: '^1.0.0',
+35 silly resolved        'update-notifier': '^0.3.0',
+35 silly resolved        'user-home': '^1.1.0',
+35 silly resolved        'yeoman-character': '^1.0.0',
+35 silly resolved        'yeoman-doctor': '^1.0.0',
+35 silly resolved        'yeoman-environment': '^1.0.1',
+35 silly resolved        yosay: '^1.0.0' },
+35 silly resolved     devDependencies:
+35 silly resolved      { jshint: '^2.5.11',
+35 silly resolved        mocha: '^2.1.0',
+35 silly resolved        mockery: '^1.4.0',
+35 silly resolved        nock: '^0.57.0',
+35 silly resolved        nsp: '*',
+35 silly resolved        proxyquire: '^1.0.1',
+35 silly resolved        'registry-url': '^2.1.0',
+35 silly resolved        sinon: '^1.12.1' },
+35 silly resolved     engineStrict: true,
+35 silly resolved     preferGlobal: true,
+35 silly resolved     gitHead: 'c9194535c38b1a684b20a4a642190b9c293b01c1',
+35 silly resolved     bugs: { url: 'https://github.com/yeoman/yo/issues' },
+35 silly resolved     homepage: 'https://github.com/yeoman/yo',
+35 silly resolved     _id: 'yo@1.4.5',
+35 silly resolved     _shasum: 'd7b66bb9079db2412178409c9709be687435cc02',
+35 silly resolved     _from: 'yo@1.4.5',
+35 silly resolved     _npmVersion: '1.4.28',
+35 silly resolved     _npmUser: { name: 'sindresorhus', email: 'sindresorhus@gmail.com' },
+35 silly resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+35 silly resolved     dist:
+35 silly resolved      { shasum: 'd7b66bb9079db2412178409c9709be687435cc02',
+35 silly resolved        tarball: 'http://registry.npmjs.org/yo/-/yo-1.4.5.tgz' },
+35 silly resolved     directories: {},
+35 silly resolved     _resolved: 'https://registry.npmjs.org/yo/-/yo-1.4.5.tgz',
+35 silly resolved     readme: 'ERROR: No README data found!' } ]
+36 info install yo@1.4.5 into /usr/local/lib
+37 info installOne yo@1.4.5
+38 verbose stack Error: Unsupported
+38 verbose stack     at checkEngine (/usr/local/lib/node_modules/npm/node_modules/npm-install-checks/index.js:16:16)
+38 verbose stack     at Array.0 (/usr/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+38 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+38 verbose stack     at chain (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+38 verbose stack     at installOne_ (/usr/local/lib/node_modules/npm/lib/install.js:883:3)
+38 verbose stack     at installOne (/usr/local/lib/node_modules/npm/lib/install.js:782:3)
+38 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:633:9
+38 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:35
+38 verbose stack     at Array.forEach (native)
+38 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:11
+39 verbose pkgid yo@1.4.5
+40 verbose cwd /Users/Impy/Desktop/Stuff/Projects/MARTA_Ex
+41 error Darwin 13.4.0
+42 error argv "node" "/usr/local/bin/npm" "update" "-g" "yo"
+43 error node v0.10.32
+44 error npm  v2.0.2
+45 error code ENOTSUP
+46 error notsup Unsupported
+46 error notsup Not compatible with your version of node/npm: yo@1.4.5
+46 error notsup Required: {"node":">=0.10.0","npm":">=2.1.0"}
+46 error notsup Actual:   {"npm":"2.0.2","node":"0.10.32"}
+47 verbose exit [ 1, true ]
