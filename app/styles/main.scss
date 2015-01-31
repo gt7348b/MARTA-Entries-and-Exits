@@ -12,3 +12,11 @@ body {
 .chart {
   background: gray;
 }
+
+div.bar{
+  display: inline-block;
+  width: 20px;
+  height: 25px;
+  background-color: teal;
+  margin-right: 2px;
+}
