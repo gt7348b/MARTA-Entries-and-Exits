@@ -1,3 +1,5 @@
-## Yo, I'm a Readme
+## MARTA Entries and Exits
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+This application examines exits from the MARTA rail system based on entry station. Data is taken from entries and exits for an average October Weekday in 2009 as part of the quality control for surveying passengers during the Atlanta Regional Commission's On-Board Transit Survey.
+
+The d3js visualization library was the primary library used to create the visualization.
