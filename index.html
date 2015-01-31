@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>MARTA_Ex</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>MARTA Entries and Exits</h1>
+      <p>          <section>
+        <p>
+          <label for="station_on">
+            <span><h3>Select Your Starting Station</h3></span>
+            <select required name="station" id="station">
+              <option value="">Please Select</option>
+              <option value="S7">Airport</option>
+              <option value="N5">Arts Center</option>
+              <option value="W3">Ashby</option>
+              <option value="E7">Avondale</option>
+              <option value="P1">Bankhead</option>
+              <option value="NE8">Brookhaven</option>
+              <option value="N7">Buckhead</option>
+              <option value="NE9">Chamblee</option>
+              <option value="N2">Civic Center</option>
+              <option value="S6">College Park</option>
+              <option value="E6">Decatur</option>
+              <option value="W1">Dome</option>
+              <option value="NE10">Doraville</option>
+              <option value="N9">Dunwoody</option>
+              <option value="E5">East Lake</option>
+              <option value="S5">East Point</option>
+              <option value="E4">Edgewood</option>
+              <option value="5P">Five Points</option>
+              <option value="S1">Garnett</option>
+              <option value="E1">Georgia State</option>
+              <option value="W5">Hamilton E. Holmes</option>
+              <option value="E9">Indian Creek</option>
+              <option value="E3">Inman Park</option>
+              <option value="E8">Kensington</option>
+              <option value="E2">King Memorial</option>
+              <option value="S4">Lakewood</option>
+              <option value="NE7">Lenox</option>
+              <option value="N6">Lindbergh Center</option>
+              <option value="N8">Medical Center</option>
+              <option value="N4">Midtown</option>
+              <option value="N3">North Avenue</option>
+              <option value="N11">North Springs</option>
+              <option value="S3">Oakland City</option>
+              <option value="N1">Peachtree Center</option>
+              <option value="N10">Sandy Springs</option>
+              <option value="W2">Vine City</option>
+              <option value="S2">West End</option>
+              <option value="W4">West Lake</option>
+            </select>
+          </label>
+          <button id='submit'>Save as Image</button>
+        </p>
+      </section></p>
+      <div id='div1'>Total Daily MARTA Exits by station</div>
+      <div id='div2'>MARTA Exits by station AM Peak</div>
+      <div id='div3'>MARTA Exits by station PM Peak</div>
+      <div id='div4'>MARTA Exits by station off-peak</div>
+      <p>Don't forget to update your readme file!!</p>
+    </div>
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
