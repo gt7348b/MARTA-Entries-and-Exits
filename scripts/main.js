@@ -34,6 +34,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
               return {station: d, ex: t[d]}
             });
           console.log(exit);
+          //console.log(sta);
 
           //return exit;
 
@@ -43,6 +44,27 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
         w = 1000;
         h = 500;
         barPadding = 1;
+        var yScale = d3.scale.linear()
+                              .domain([0, 500])
+                              .range(0, h);
+
+        var max = d3.max(exit);
+        console.log(max);
+
+        //render the axes
+        var x = d3.scale.ordinal()
+                  .rangeRoundBands([0, w], .1);
+        var y = d3.scale.linear()
+                  .range([h, 0]);
+
+        var xAxis = d3.svg.axis()
+                    .scale(x)
+                    .orient('bottom');
+        var yAxis = d3.svg.axis()
+                    .scale(y)
+                    .orient('left');
+
+        x.domain(sta.map(function(d){return d}));
 
         svg.selectAll('rect')
               .data(exit)
@@ -78,6 +100,20 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
               .attr('fill', 'white')
               .attr('text-anchor', 'middle');
 
+              svg.append('g')
+              .attr('class', 'x axis')
+              .attr('transform', 'translate (0 ' + h + ')')
+              .call(xAxis)
+              .selectAll('text')
+              .style('text-anchor', 'end')
+              .style('font-size', '8')
+              .attr('dx', '-8')
+              .attr('dy', '15')
+              .attr('transform' , function(d){
+                return 'rotate(-65)'
+              })
+              .attr('fill', 'white');
+
 
         //   d3.select('#div1').selectAll('p')
         //   .data(exit)
@@ -92,7 +128,6 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
         //   .text(function (d){d.ex});
         //
        });
-        console.log(exits);
 
 
       // //Cleans data to process
