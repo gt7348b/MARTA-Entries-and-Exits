@@ -11,6 +11,8 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
 
         console.log(station);
 
+        d3.select('svg').remove()
+
         var response = [];
 
         sel_station = data.filter(function(entry){
@@ -39,6 +41,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
           d3.select('#div1').selectAll('p')
           .data(exit)
           .enter()
+          //.append('svg')
           .append('div')
           .attr('class', 'bar')
           .style('height', function (d){
