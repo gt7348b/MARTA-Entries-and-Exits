@@ -23,16 +23,31 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
 
         var exits = response.map(function(t, exit){
 
-          var exit = d3.keys(data[0])
+          var sta = d3.keys(data[0])
           .filter(function(key){ return key!=='Name'})
           .filter(function(key){ return key!=='WHERE GET ON'})
           .filter(function(key){ return key!==''});
 
-          return {
-            exitst: exit.map(function(d){
+          var exit = sta.map(function(d){
               return {station: d, ex: t[d]}
-            })
-          }
+            });
+          console.log(exit);
+
+          //return exit;
+
+          //render the bar chart
+          d3.select('#div1').selectAll('p')
+          .data(exit)
+          .enter()
+          .append('div')
+          .attr('class', 'bar')
+          .style('height', function (d){
+            var barHeight = d.ex /3;
+            return barHeight + 'px';
+          })
+          .append('text')
+          .text(function (d){d.ex});
+
         });
         console.log(exits);
 
@@ -55,18 +70,18 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
       //
       // console.log(exits);
 
-      //render the bar chart
-      d3.select('#div1').selectAll('p')
-        .data(exits)
-        .enter()
-        .append('div')
-        .attr('class', 'bar')
-        .style('height', function (d){
-          var barHeight = d.exitst[9].ex /3;
-          return barHeight + 'px';
-        })
-        .append('text')
-        .text(function (d){d.exitst[0].ex});
+      // //render the bar chart
+      // d3.select('#div1').selectAll('p')
+      //   .data(exits)
+      //   .enter()
+      //   .append('div')
+      //   .attr('class', 'bar')
+      //   .style('height', function (d){
+      //     var barHeight = d.ex /3;
+      //     return barHeight + 'px';
+      //   })
+      //   .append('text')
+      //   .text(function (d){d.ex});
       });
 
 });
