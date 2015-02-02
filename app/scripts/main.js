@@ -41,7 +41,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
         svg = d3.select('#div1').append('svg')
 
         w = 1000;
-        h = 100;
+        h = 500;
         barPadding = 1;
 
         svg.selectAll('rect')
@@ -52,13 +52,31 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
                 return i * (w/exit.length);
               })
               .attr('y', function(d){
-                return h - (d.ex);
+                return h - (d.ex/2);
               })
               .attr('width', w / exit.length - barPadding)
               .attr('height', function(d){
-                return d.ex;
+                return d.ex/2;
               })
               .attr('fill', 'teal');
+
+            svg.selectAll('text')
+              .data(exit)
+              .enter()
+              .append('text')
+              .text(function(d){
+                return d.station;
+              })
+              .attr('x', function(d, i){
+                return i * (w/exit.length) + 10;
+              })
+              .attr('y', function(d){
+                return h - (d.ex/2) + 10;
+              })
+              .attr('font-family', 'sans-serif')
+              .attr('font-size', '11px')
+              .attr('fill', 'white')
+              .attr('text-anchor', 'middle');
 
 
         //   d3.select('#div1').selectAll('p')
