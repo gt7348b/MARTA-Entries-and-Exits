@@ -38,20 +38,42 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
           //return exit;
 
           //render the bar chart
-          d3.select('#div1').selectAll('p')
-          .data(exit)
-          .enter()
-          //.append('svg')
-          .append('div')
-          .attr('class', 'bar')
-          .style('height', function (d){
-            var barHeight = d.ex /3;
-            return barHeight + 'px';
-          })
-          .append('text')
-          .text(function (d){d.ex});
+        svg = d3.select('#div1').append('svg')
 
-        });
+        w = 1000;
+        h = 100;
+        barPadding = 1;
+
+        svg.selectAll('rect')
+              .data(exit)
+              .enter()
+              .append('rect')
+              .attr('x', function(d, i){
+                return i * (w/exit.length);
+              })
+              .attr('y', function(d){
+                return h - (d.ex);
+              })
+              .attr('width', w / exit.length - barPadding)
+              .attr('height', function(d){
+                return d.ex;
+              })
+              .attr('fill', 'teal');
+
+
+        //   d3.select('#div1').selectAll('p')
+        //   .data(exit)
+        //   .enter()
+        //   .append('div')
+        //   .attr('class', 'bar')
+        //   .style('height', function (d){
+        //     var barHeight = d.ex /3;
+        //     return barHeight + 'px';
+        //   })
+        //   .append('text')
+        //   .text(function (d){d.ex});
+        //
+       });
         console.log(exits);
 
 
