@@ -68,6 +68,23 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
         var yAxis = d3.svg.axis()
                     .scale(y)
                     .orient('left');
+        var line = d3.svg.line()
+                      .interpolate('cardinal')
+                      .x(function(d){ return x(d.station) + x.rangeBand()/2; })
+                      .y(function(d){ return y(d.ex); });
+
+                      //Render Grid
+                      svg.selectAll('line.y')
+                      .data(y.ticks(10))
+                      .enter().append('line')
+                      .attr('class', 'y')
+                      .attr('x1', 0)
+                      .attr('x2', w)
+                      .attr('y1', y)
+                      .attr('y2', y)
+                      .style('stroke', '#ccc');
+                      
+        // This renders the bar chart
 
         svg.selectAll('rect')
               .data(exit)
@@ -103,6 +120,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
               .attr('fill', 'white')
               .attr('text-anchor', 'middle');
 
+              //Render X axis
               svg.append('g')
               .attr('class', 'x axis')
               .attr('transform', 'translate (0 ' + h + ')')
@@ -117,6 +135,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
               })
               .attr('fill', 'white');
 
+              //Render y axis
           svg.append('g')
               .attr('class', 'y axis')
               .call(yAxis)
@@ -127,7 +146,6 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
                 .style('text-anchor', 'end')
                 .text('Where people exited')
                 .attr('fill', 'white');
-
 
         //   d3.select('#div1').selectAll('p')
         //   .data(exit)
