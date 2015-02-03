@@ -34,15 +34,16 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
               return {station: d, ex: t[d]}
             });
           console.log(exit);
-          //console.log(sta);
+          console.log(sta);
 
           //return exit;
 
           //render the bar chart
         svg = d3.select('#div1').append('svg')
 
-        w = 1000;
-        h = 500;
+        var margin = {top: 20, right: 50, bottom: 50, left:60},
+        w = 1000 - margin.left,
+        h = 500- margin.top - margin.bottom;
         barPadding = 1;
         var max = d3.max(exit, function(d){return +d.ex; });
         var min = d3.min(exit, function(d){return +d.ex; });
@@ -83,7 +84,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
                       .attr('y1', y)
                       .attr('y2', y)
                       .style('stroke', '#ccc');
-                      
+
         // This renders the bar chart
 
         svg.selectAll('rect')
@@ -107,7 +108,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
               .enter()
               .append('text')
               .text(function(d){
-                return d.station;
+                return d.ex;
               })
               .attr('x', function(d, i){
                 return i * (w/exit.length) + 10;
@@ -144,7 +145,6 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
                 .attr('y', 6)
                 .attr('dy', '.71em')
                 .style('text-anchor', 'end')
-                .text('Where people exited')
                 .attr('fill', 'white');
 
         //   d3.select('#div1').selectAll('p')
