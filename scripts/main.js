@@ -34,40 +34,56 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
               return {station: d, ex: t[d]}
             });
           console.log(exit);
-          //console.log(sta);
+          console.log(sta);
 
           //return exit;
 
           //render the bar chart
         svg = d3.select('#div1').append('svg')
 
-        w = 1000;
-        h = 500;
+        var margin = {top: 50, right: 50, bottom: 50, left:60},
+        w = 1000 - margin.left,
+        h = 500- margin.top - margin.bottom;
         barPadding = 1;
         var max = d3.max(exit, function(d){return +d.ex; });
         var min = d3.min(exit, function(d){return +d.ex; });
         console.log(max);
         console.log(min);
 
-        var yScale = d3.scale.linear()
-                              .domain([0, max])
-                              .range(0, h);
-
-
-        //render the axes
+        //Defining the axes
         var x = d3.scale.ordinal()
-                  .rangeRoundBands([0, w], .1)
+                  .rangeRoundBands([0, w])
                   .domain(sta.map(function(d){return d}));;
+
         var y = d3.scale.linear()
                   .range([h, 0])
                   .domain([min, max]);
 
         var xAxis = d3.svg.axis()
                     .scale(x)
-                    .orient('bottom');
+                    .orient('bottom')
+                    .ticks(37);
         var yAxis = d3.svg.axis()
                     .scale(y)
                     .orient('left');
+
+        var line = d3.svg.line()
+                      .interpolate('cardinal')
+                      .x(function(d){ return x(d.station) + x.rangeBand(); })
+                      .y(function(d){ return y(d.ex); });
+
+        //Render Grid
+        svg.selectAll('line.y')
+        .data(y.ticks(10))
+        .enter().append('line')
+        .attr('class', 'y')
+        .attr('x1', 0)
+        .attr('x2', w)
+        .attr('y1', y)
+        .attr('y2', y)
+        .style('stroke', '#ccc');
+
+        // This renders the bar chart
 
         svg.selectAll('rect')
               .data(exit)
@@ -103,20 +119,22 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
               .attr('fill', 'white')
               .attr('text-anchor', 'middle');
 
+              //Render X axis
               svg.append('g')
               .attr('class', 'x axis')
               .attr('transform', 'translate (0 ' + h + ')')
               .call(xAxis)
-              .selectAll('text')
-              .style('text-anchor', 'end')
-              .style('font-size', '8')
-              .attr('dx', '-8')
-              .attr('dy', '15')
-              .attr('transform' , function(d){
-                return 'rotate(-65)'
-              })
-              .attr('fill', 'white');
+              // .selectAll('text')
+              // .style('text-anchor', 'end')
+              // .style('font-size', '12')
+              // .attr('dx', '-15')
+              // .attr('dy', '0')
+              // .attr('transform' , function(d){
+              //   return 'rotate(-65)'
+              // })
+              // .attr('fill', 'white');
 
+              //Render y axis
           svg.append('g')
               .attr('class', 'y axis')
               .call(yAxis)
@@ -125,9 +143,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
                 .attr('y', 6)
                 .attr('dy', '.71em')
                 .style('text-anchor', 'end')
-                .text('Where people exited')
                 .attr('fill', 'white');
-
 
         //   d3.select('#div1').selectAll('p')
         //   .data(exit)
