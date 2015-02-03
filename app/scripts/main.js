@@ -77,12 +77,11 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
                 return i * (w/exit.length);
               })
               .attr('y', function(d){
-                return h - (d.ex);
+                return y((d.ex));
               })
               .attr('width', w / exit.length - barPadding)
               .attr('height', function(d){
-                console.log(yScale(d.ex));
-                return d.ex;
+                return h - y(d.ex);
               })
               .attr('fill', 'teal');
 
@@ -97,7 +96,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
                 return i * (w/exit.length) + 10;
               })
               .attr('y', function(d){
-                return h - (d.ex/2) + 10;
+                return y(d.ex) + 10;
               })
               .attr('font-family', 'sans-serif')
               .attr('font-size', '11px')
