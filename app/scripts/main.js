@@ -5,6 +5,10 @@ console.log('Roscoe is a cutie');
 var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
       console.log(data);
 
+    var AMdata = d3.csv('AM_Rail_Entry_and_Exit_Cleaned/AM_PEAK_Table_1.csv', function (error, data1){
+      console.log(data1);
+    });
+
       $('#submit').on('click', function(event){
         event.preventDefault();
         station = $('#station').val();
