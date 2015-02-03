@@ -25,3 +25,14 @@ svg {
   width: 1000px;
   height: 500px;
 }
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: white;
+  stroke: white;
+  shape-rendering: crispEdges;
+}
