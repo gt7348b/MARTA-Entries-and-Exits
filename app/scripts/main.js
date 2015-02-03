@@ -48,7 +48,7 @@ var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
                               .domain([0, 500])
                               .range(0, h);
 
-        var max = d3.max(exit);
+        var max = d3.max(exit, function(d){return +d.ex; });
         console.log(max);
 
         //render the axes
