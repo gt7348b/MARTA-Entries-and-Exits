@@ -191,6 +191,7 @@ console.log('Roscoe is a cutie');
           //   .text(function (d){d.ex});
         });
 
+        d3.select('svg').remove();
         // This section call the AM Data
         var AMdata = d3.csv('AM_Rail_Entry_Exit_Cleaned.csv', function (error, data){
           console.log(data);
@@ -326,56 +327,10 @@ console.log('Roscoe is a cutie');
               .attr('dy', '.71em')
               .style('text-anchor', 'end')
               .attr('fill', 'white');
-
-              //   d3.select('#div1').selectAll('p')
-              //   .data(exit)
-              //   .enter()
-              //   .append('div')
-              //   .attr('class', 'bar')
-              //   .style('height', function (d){
-              //     var barHeight = d.ex /3;
-              //     return barHeight + 'px';
-              //   })
-              //   .append('text')
-              //   .text(function (d){d.ex});
-              //
             });
-
-
-            // //Cleans data to process
-            // var exits = data.map(function(t, exit){
-            //
-            //   var exit = d3.keys(data[0])
-            //     .filter(function(key){ return key!=='Name'})
-            //     .filter(function(key){ return key!=='WHERE GET ON'})
-            //     .filter(function(key){ return key!==''});
-            //
-            //   return {
-            //     name: t.Name,
-            //     exitst: exit.map(function(d){
-            //       return {station: d, ex: t[d]}
-            //     })
-            //   }
-            // });
-            //
-            // console.log(exits);
-
-            // //render the bar chart
-            // d3.select('#div1').selectAll('p')
-            //   .data(exits)
-            //   .enter()
-            //   .append('div')
-            //   .attr('class', 'bar')
-            //   .style('height', function (d){
-            //     var barHeight = d.ex /3;
-            //     return barHeight + 'px';
-            //   })
-            //   .append('text')
-            //   .text(function (d){d.ex});
-
         });
 
-
+        d3.select('svg').remove(); // This clears the PM SVG
         // This section calls the PM Data
         var PMdata = d3.csv('PM_Rail_Entry_Exit_Cleaned.csv', function(error, data){
           console.log(data);
@@ -515,6 +470,7 @@ console.log('Roscoe is a cutie');
           });
         });
 
+        d3.select('svg').remove();// This clears the Off Peak SVG
         // This section calls the Off Peak Data
         var OPdata = d3.csv('Off_Peak_Rail_Entry_Exit_Cleaned.csv', function(error, data){
           console.log(data);
