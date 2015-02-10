@@ -202,7 +202,7 @@ console.log('Roscoe is a cutie');
             form['output_format'].value = output_format;
             form['data'].value = svg_xml;
             console.log(form);
-            //form.submit();
+            form.submit();
 
           }
 
