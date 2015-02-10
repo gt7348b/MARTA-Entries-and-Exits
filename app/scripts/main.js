@@ -198,14 +198,13 @@ console.log('Roscoe is a cutie');
 
           var svg_xml = (new XMLSerializer).serializeToString(svg_save);
 
-          var form = document.getElementById('#svgform');
-          form['output_format'].value = output_format;
-          form['data'].value = svg_xml;
-          form.submit();
-
           // Attach action to button
           $('#save_as_pdf').click(function(){
             console.log('Ive been clicked');
+            var form = document.getElementById('svgform');
+            form['output_format'].value = output_format;
+            form['data'].value = svg_xml;
+            form.submit();
             submit_download_form("pdf");
           });
 
