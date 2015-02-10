@@ -5,12 +5,12 @@ console.log('Roscoe is a cutie');
       event.preventDefault();
       station = $('#station').val();
 
-      console.log(station);
+      //console.log(station);
 
       d3.select('svg').remove();
 
         var data = d3.csv('Total_Rail_Entry_Exit_Cleaned.csv', function(error, data){
-          console.log(data);
+          //console.log(data);
 
             var response = [];
 
@@ -32,8 +32,8 @@ console.log('Roscoe is a cutie');
               var exit = sta.map(function(d){
                   return {station: d, ex: t[d]}
                 });
-              console.log(exit);
-              console.log(sta);
+              //console.log(exit);
+              //console.log(sta);
 
               //return exit;
 
@@ -46,8 +46,8 @@ console.log('Roscoe is a cutie');
             barPadding = 1;
             var max = d3.max(exit, function(d){return +d.ex; });
             var min = d3.min(exit, function(d){return +d.ex; });
-            console.log(max);
-            console.log(min);
+            //console.log(max);
+            //console.log(min);
 
             //Defining the axes
             var x = d3.scale.ordinal()
@@ -189,10 +189,32 @@ console.log('Roscoe is a cutie');
           //   })
           //   .append('text')
           //   .text(function (d){d.ex});
+
+          //Save the svg image code
+          var tmp = document.getElementById('div1');
+          console.log(tmp);
+          var svg_save = tmp.getElementsByTagName('svg')[0];
+          console.log(svg_save);
+
+          var svg_xml = (new XMLSerializer).serializeToString(svg_save);
+
+          var form = document.getElementById('#svgform');
+          form['output_format'].value = output_format;
+          form['data'].value = svg_xml;
+          form.submit();
+
+          // Attach action to button
+          $('#save_as_pdf').click(function(){
+            console.log('Ive been clicked');
+            submit_download_form("pdf");
+          });
+
         });
 
-        d3.select('svg').remove();
         // This section call the AM Data
+
+        d3.select('svg').remove();
+
         var AMdata = d3.csv('AM_Rail_Entry_Exit_Cleaned.csv', function (error, data){
           console.log(data);
 

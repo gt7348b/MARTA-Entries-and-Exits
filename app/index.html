@@ -83,7 +83,10 @@
       </section></p>
       <div id='div1'>Total Daily MARTA Exits by station<br>
         <button class='btn btn-success' id='save_as_pdf' value=''>Save as PDF</button>
-
+        <form id='svgform' method='post' action='download.pl'>
+            <input type='hidden' id='output_format' name='output_format' value='pdf'>
+            <input type='hidden' id='data' name='data' value=''>
+          </form>
       </div>
       <div id='div2'>MARTA Exits by station AM Peak<br></div>
       <div id='div3'>MARTA Exits by station PM Peak<br></div>
