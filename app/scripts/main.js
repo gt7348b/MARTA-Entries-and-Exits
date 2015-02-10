@@ -191,20 +191,25 @@ console.log('Roscoe is a cutie');
           //   .text(function (d){d.ex});
 
           //Save the svg image code
-          var tmp = document.getElementById('div1');
-          console.log(tmp);
-          var svg_save = tmp.getElementsByTagName('svg')[0];
-          console.log(svg_save);
+          function submit_download_form(output_format){
+            var tmp = document.getElementById('div1');
+            console.log(tmp);
+            var svg_save = tmp.getElementsByTagName('svg')[0];
+            console.log(svg_save);
 
-          var svg_xml = (new XMLSerializer).serializeToString(svg_save);
+            var svg_xml = (new XMLSerializer).serializeToString(svg_save);
 
-          // Attach action to button
-          $('#save_as_pdf').click(function(){
-            console.log('Ive been clicked');
             var form = document.getElementById('svgform');
             form['output_format'].value = output_format;
             form['data'].value = svg_xml;
             form.submit();
+          }
+
+
+          // Attach action to button
+          $('#save_as_pdf').click(function(){
+            console.log('Ive been clicked');
+;
             submit_download_form("pdf");
           });
 
