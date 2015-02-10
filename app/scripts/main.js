@@ -195,14 +195,15 @@ console.log('Roscoe is a cutie');
             var tmp = document.getElementById('div1');
             console.log(tmp);
             var svg_save = tmp.getElementsByTagName('svg')[0];
-            console.log(svg_save);
 
             var svg_xml = (new XMLSerializer).serializeToString(svg_save);
-
+            //console.log(svg_xml);
             var form = document.getElementById('svgform');
             form['output_format'].value = output_format;
             form['data'].value = svg_xml;
-            form.submit();
+            console.log(form);
+            //form.submit();
+
           }
 
 
