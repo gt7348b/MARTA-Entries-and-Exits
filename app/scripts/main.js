@@ -138,11 +138,11 @@ console.log('Roscoe is a cutie');
                   .attr('class', 'y axis')
                   .call(yAxis)
                   .append('text')
-                    .attr('transform', 'rotate(-90)')
+                    .attr('transform', 'rotate(180)')
                     .attr('y', 6)
                     .attr('dy', '.71em')
                     .style('text-anchor', 'end')
-                    .attr('fill', 'white');
+                    .attr('fill', 'green');
 
             //   d3.select('#div1').selectAll('p')
             //   .data(exit)
@@ -349,7 +349,7 @@ console.log('Roscoe is a cutie');
               .attr('class', 'y axis')
               .call(yAxis)
               .append('text')
-              .attr('transform', 'rotate(-90)')
+              .attr('transform', 'rotate(0)')
               .attr('y', 6)
               .attr('dy', '.71em')
               .style('text-anchor', 'end')
