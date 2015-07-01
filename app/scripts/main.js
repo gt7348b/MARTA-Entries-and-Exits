@@ -100,38 +100,39 @@ console.log('Roscoe is a cutie');
                   })
                   .attr('fill', 'teal');
 
-                svg.selectAll('text')
-                  .data(exit)
-                  .enter()
-                  .append('text')
-                  .text(function(d){
-                    return d.station;
-                  })
-                  .attr('x', function(d, i){
-                    return i * (w/exit.length) + 10;
-                  })
-                  .attr('y', function(d){
-                    return y(d.ex) + 10;
-                  })
-                  .attr('font-family', 'sans-serif')
-                  .attr('font-size', '11px')
-                  .attr('fill', 'white')
-                  .attr('text-anchor', 'middle');
+                // svg.selectAll('text')
+                //   .data(exit)
+                //   .enter()
+                //   .append('text')
+                //   .text(function(d){
+                //     return d.station;
+                //   })
+                //   .attr('x', function(d, i){
+                //     return i * (w/exit.length) + 10;
+                //   })
+                //   .attr('y', function(d){
+                //     return y(d.ex) + 10;
+                //   })
+                //   .attr('font-family', 'sans-serif')
+                //   .attr('font-size', '11px')
+                //   .attr('fill', 'white')
+                //   .attr('text-anchor', 'middle')
+                //   .attr('transform' ,'rotate(10)');
 
                   //Render X axis
                   svg.append('g')
                   .attr('class', 'x axis')
                   .attr('transform', 'translate (0 ' + h + ')')
                   .call(xAxis)
-                  // .selectAll('text')
-                  // .style('text-anchor', 'end')
-                  // .style('font-size', '12')
-                  // .attr('dx', '-15')
-                  // .attr('dy', '0')
-                  // .attr('transform' , function(d){
-                  //   return 'rotate(-65)'
-                  // })
-                  // .attr('fill', 'white');
+                    .selectAll('text')
+                    .style('text-anchor', 'start')
+                    .style('font-size', '12')
+                    .attr('dx', '5')
+                    .attr('dy', '-15')
+                    .attr('transform' , function(d){
+                      return 'rotate(-90)'
+                    })
+                    .attr('fill', 'white');
 
                   //Render y axis
               svg.append('g')
